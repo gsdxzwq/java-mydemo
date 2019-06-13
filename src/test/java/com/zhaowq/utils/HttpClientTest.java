@@ -12,6 +12,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 public class HttpClientTest {
+    private static String key = "";
 
     @Test
     public void test() {
@@ -41,7 +42,7 @@ public class HttpClientTest {
 
         // 请求地址
         HttpGet httpGet = new HttpGet(
-                "https://maps.googleapis.com/maps/api/geocode/json?latlng=28,4&key=AIzaSyBLRk7xbrn957MErwINCQGy5fgWVHTn8SE&result_type=country");
+                "https://maps.googleapis.com/maps/api/geocode/json?latlng=28,4&key=" + key + "&result_type=country");
         httpGet.setConfig(config);
         try {
             CloseableHttpResponse response = closeableHttpClient.execute(httpGet);
