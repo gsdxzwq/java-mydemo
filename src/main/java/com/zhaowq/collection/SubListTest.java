@@ -9,20 +9,26 @@ import java.util.List;
  */
 public class SubListTest {
     public static void main(String[] args) {
-        List<Integer> list1 = new ArrayList<>();
-        list1.add(1);
-        list1.add(2);
+        List<String> sourceList = new ArrayList<String>() {{
+            add("H");
+            add("O");
+            add("L");
+            add("L");
+            add("I");
+            add("S");
+        }};
 
-        //通过构造函数新建一个包含list1的列表 list2
-        List<Integer> list2 = new ArrayList<>(list1);
+        List subList = sourceList.subList(2, 5);
 
-        //通过subList生成一个与list1一样的列表 list3
-        List<Integer> list3 = list1.subList(0, list1.size());
+        System.out.println("sourceList ： " + sourceList);
+        System.out.println("sourceList.subList(2, 5) 得到List ：");
+        System.out.println("subList ： " + subList);
 
-        //修改list3
-        list3.add(3);
+        sourceList.add("666");
 
-        System.out.println("list1 == list2：" + list1.equals(list2));
-        System.out.println("list1 == list3：" + list1.equals(list3));
+        System.out.println("sourceList.add(666) 得到List ：");
+        System.out.println("sourceList ： " + sourceList);
+        System.out.println("subList ： " + subList);
+
     }
 }

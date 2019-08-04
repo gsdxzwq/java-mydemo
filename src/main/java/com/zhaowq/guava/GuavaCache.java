@@ -23,16 +23,20 @@ public class GuavaCache {
                 //开启weakKey key 当启动垃圾回收时，该缓存也被回收
                 .weakKeys().build(createCacheLoader());
         System.out.println(cache.get("hello"));
+        System.out.println(cache.size());
         cache.put("hello1", "我是hello1");
         System.out.println(cache.get("hello1"));
         cache.put("hello1", "我是hello2");
         System.out.println(cache.get("hello1"));
+        System.out.println(cache.get("hello3"));
+        System.out.println(cache.size());
     }
 
     public static CacheLoader<String, String> createCacheLoader() {
         return new CacheLoader<String, String>() {
             @Override
             public String load(String key) throws Exception {
+                System.out.println("load");
                 return key;
             }
         };

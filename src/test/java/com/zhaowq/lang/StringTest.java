@@ -12,6 +12,12 @@ public class StringTest {
 
     @Test
     public void test() {
+        String[] split = "a,b,c,".split(",");
+        System.out.println(split.length);
+    }
+
+    @Test
+    public void test2() {
         System.out.println(conversion(";545;"));
     }
 
@@ -24,5 +30,15 @@ public class StringTest {
             stringBuilder.append(id).append(" a");
         }
         return stringBuilder.toString().trim();
+    }
+
+    @Test
+    public void test3(){
+        String s1 = "Hollis";
+        String s2 = new String("Hollis");
+        String s3 = new String("Hollis").intern();
+
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
     }
 }
